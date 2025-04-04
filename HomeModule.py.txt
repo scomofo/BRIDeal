@@ -1,0 +1,65 @@
+import sys
+import os
+import traceback
+from PyQt5.QtWidgets import (
+    QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
+    QStackedWidget, QLabel, QStatusBar
+)
+from PyQt5 import QtGui
+from PyQt5.QtCore import Qt, QTimer, pyqtSlot
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+from datetime import datetime, timedelta
+import aiohttp
+import asyncio
+import requests
+import yfinance as yf
+from asyncqt import QEventLoop  # Import asyncqt
+
+sns.set_style("whitegrid")
+sns.set_palette("deep")
+
+class HomeModule(QWidget):
+    def __init__(self, main_window=None, parent=None):
+        super().__init__(parent)
+        self.main_window = main_window
+        layout = QVBoxLayout(self)
+        layout.setSpacing(20)
+        layout.setContentsMargins(20, 20, 20, 20)
+
+        title = QLabel("Welcome to AMSDeal Dashboard")
+        title.setStyleSheet("font-size: 28px; font-weight: bold; color: #2a5d24; font-family: 'Segoe UI', Arial;")
+        layout.addWidget(title)
+
+        self.data_label = QLabel("Market Data (Updating...)")
+        self.data_label.setStyleSheet("font-size: 16px; color: #555; font-family: 'Segoe UI', Arial;")
+        layout.addWidget(self.data_label)
+
+        self.weather_label = QLabel("Fetching weather for Camrose, Wainwright, Killam, and Provost, Alberta...")
+        self.weather_label.setStyleSheet("font-size: 16px; color: #555; font-family: 'Segoe UI', Arial;")
+        layout.addWidget(self.weather_label)
+
+        self.exchange_rate_label = QLabel("Latest USD-CAD Rate: N/A")
+        self.exchange_rate_label.setStyleSheet("""
+            font-size: 18px; 
+            font-weight: bold; 
+            color: #2a5d24; 
+            background: #e6f3e6; 
+            padding: 10px; 
+            border-radius: 6px; 
+            border: 1px solid #d1d5db;
+            font-family: 'Segoe UI', Arial;
+        """)
+        self.commodity_canvas = None
+        self.wheat_price_label = QLabel("Latest Wheat Price: N/A")
+        self.wheat_price_label.setStyleSheet(self.exchange_rate_label.styleSheet())
+        self.canola_price_label = QLabel("Latest Canola Price: N/A")
+        self.canola_price_label.setStyleSheet(self.exchange_rate_label.styleSheet())
+
+        layout.addWidget(self.exchange_rate_label)
+        layout.addWidget(self.wheat_price_label)
+        layout.addWidget(self.canola_price_label)
+
+        layout.addStretch()

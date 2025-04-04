@@ -1,0 +1,22 @@
+[
+    {
+        "customer_name": "KEN GUENTHNER",
+        "salesperson": "Gordon Paulgaard",
+        "equipment": [
+            "\"Agra-GPS Bridge\" (Code: ) STK#C017982 $4,875.00"
+        ],
+        "trades": [],
+        "parts": [
+            "1x BPF12124 Display Bracket Killam C017982",
+            "1x PF90781  Killam C017982"
+        ],
+        "work_order_required": false,
+        "work_order_charge_to": "",
+        "work_order_hours": "",
+        "multi_line_csv": false,
+        "paid": false,
+        "part_location_index": 2,
+        "last_charge_to": "C017982",
+        "timestamp": "2025-04-02T16:16:55.613341"
+    }
+]

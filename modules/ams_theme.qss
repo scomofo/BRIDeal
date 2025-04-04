@@ -1,0 +1,60 @@
+
+QWidget {
+    font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    background-color: #f1f1f1;
+}
+
+QLineEdit, QTextEdit {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #ffffff;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border-color: #367c2b;
+    box-shadow: 0 0 8px rgba(54, 124, 43, 0.6);
+}
+
+QPushButton {
+    background-color: #ffd621;
+    color: #333333;
+    border: none;
+    border-radius: 2px;
+    height: 50px;
+    font-size: 16px;
+}
+
+QPushButton:hover {
+    background-color: #edc100;
+}
+
+QPushButton:pressed {
+    background-color: #e7be09;
+}
+
+QLabel {
+    font-size: 14px;
+    color: #333333;
+}
+
+QMainWindow {
+    background-color: #f1f1f1;
+}
+
+QGroupBox {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 3px 0 3px;
+    font-weight: bold;
+    color: #367c2b;
+}

@@ -1,0 +1,227 @@
+import sys
+import os
+from PyQt5.QtWidgets import QApplication, QMainWindow # Or PySide6, etc.
+# Potentially other imports here...
+# from amsdeal_dashboard import AMSDealDashboard # Example import
+from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QListWidget, QListWidgetItem, QLabel, QWidget, QVBoxLayout, QHBoxLayout, QMessageBox
+from PyQt5 import QtGui
+from PyQt5.QtCore import Qt, QSize
+import os
+import logging
+
+from AMSDealForm import AMSDealForm
+from HomeModule import HomeModule
+from JDQuoteModule import JDQuoteModule
+from CalendarModule import CalendarModule
+from CalculatorModule import CalculatorModule
+from ReceivingModule import ReceivingModule
+from CSVEditor import CSVEditor
+        
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        
+        # Initialize paths
+        self.base_path = os.path.dirname(os.path.abspath(__file__))
+        self.data_path = os.path.join(self.base_path, "data")
+        self.logs_path = os.path.join(self.base_path, "logs")
+        os.makedirs(self.data_path, exist_ok=True)
+        os.makedirs(self.logs_path, exist_ok=True)
+
+        # Setup logging
+        self.setup_logging()
+
+        # Initialize data structures
+        self.required_files = {
+            'products.csv': ["ProductCode", "ProductName", "Price", "JDQName"],
+            'parts.csv': ["Part Number", "Part Name"]
+        }
+    # Load logo
+    logo_path = os.path.join(self.base_path, "logo.png")
+    self.logo_pixmap = QtGui.QPixmap(logo_path) if os.path.exists(logo_path) else QtGui.QPixmap()
+
+    # Setup UI
+    self.setup_ui()
+
+    # Initialize modules
+    self.init_modules()
+
+    # Show default view
+    self.module_list.setCurrentRow(0)
+
+def setup_logging(self):
+    """Configure application logging"""
+    logging.basicConfig(
+        filename=os.path.join(self.logs_path, 'app.log'),
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+    self.logger = logging.getLogger('AMSDeal')
+
+def get_data_status(self):
+    """Return dictionary of file existence status"""
+    return {filename: os.path.exists(os.path.join(self.data_path, filename)) for filename in self.required_files}
+
+    def setup_ui(self):
+        """Initialize main window UI"""
+        # Main widget and layout
+        main_widget = QWidget()
+        self.setCentralWidget(main_widget)
+        main_layout = QHBoxLayout(main_widget)
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.setSpacing(0)
+        
+        # Sidebar
+        sidebar_widget = QWidget()
+        sidebar_widget.setFixedWidth(250)
+        sidebar_widget.setStyleSheet("background-color: #2a5d24;")
+        sidebar_layout = QVBoxLayout(sidebar_widget)
+        sidebar_layout.setContentsMargins(0, 0, 0, 0)
+        sidebar_layout.setSpacing(0)
+        
+        # Logo
+        logo_label = QLabel()
+        if not self.logo_pixmap.isNull():
+            logo_label.setPixmap(self.logo_pixmap.scaled(200, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation))
+        logo_label.setAlignment(Qt.AlignCenter)
+        logo_label.setStyleSheet("padding: 20px 0;")
+        sidebar_layout.addWidget(logo_label)
+        
+        # Module list
+        self.module_list = QListWidget()
+        self.module_list.setStyleSheet("""
+            QListWidget {
+                background-color: #2a5d24;
+                color: white;
+                font-size: 16px;
+                border: none;
+            }
+            QListWidget::item {
+                padding: 12px 15px;
+                border-bottom: 1px solid #367C2B;
+            }
+            QListWidget::item:selected {
+                background-color: #367C2B;
+            }
+        """)
+        self.module_list.setFocusPolicy(Qt.NoFocus)
+        
+        # Add modules to list
+        modules = [
+            ("🏠 Dashboard", "Home"),
+            ("📝 Deal Form", "DealForm"),
+            ("🧮 Calculator", "Calculator"),
+            ("📅 Calendar", "Calendar"),
+            ("📊 Products Editor", "ProductsEditor"),
+            ("🔩 Parts Editor", "PartsEditor"),
+            ("👥 Customers Editor", "CustomersEditor"),
+            ("👔 Salesmen Editor", "SalesmenEditor"),
+            ("🔐 JD Quotes", "JDQuotes"),
+            ("📦 Receiving", "Receiving")
+        ]
+        
+        for text, module in modules:
+            item = QListWidgetItem(text)
+            item.setData(Qt.UserRole, module)
+            item.setSizeHint(QSize(200, 50))
+            self.module_list.addItem(item)
+        
+        sidebar_layout.addWidget(self.module_list)
+        sidebar_layout.addStretch()
+        
+        # Version info
+        version_label = QLabel("v1.0.0")
+        version_label.setAlignment(Qt.AlignCenter)
+        version_label.setStyleSheet("color: #aaa; padding: 10px; font-size: 12px;")
+        sidebar_layout.addWidget(version_label)
+        
+        main_layout.addWidget(sidebar_widget)
+        
+        # Stacked widget for modules
+        self.stack = QStackedWidget()
+        main_layout.addWidget(self.stack)
+        
+        # Connect module selection
+    def init_modules(self):
+        """Initialize all application modules"""
+        self.modules = {
+            "ProductsEditor": None,
+            "PartsEditor": None,
+            "CustomersEditor": None,
+            "SalesmenEditor": None,
+            "JDQuotes": JDQuoteModule(self),
+            "Receiving": ReceivingModule(self)
+        }
+
+        # Add existing modules to stack
+        for name, module in self.modules.items():
+            if module is not None:
+                self.stack.addWidget(module)
+                self.logger.info(f"Initialized module: {name}")
+
+        # Connect module selection
+        self.module_list.currentRowChanged.connect(self.change_module)
+        
+        # Add existing modules to stack
+        for name, module in self.modules.items():
+            if module is not None:
+                self.stack.addWidget(module)
+                self.logger.info(f"Initialized module: {name}")
+
+    def change_module(self, index):
+        """Handle module switching"""
+        item = self.module_list.item(index)
+        module_name = item.data(Qt.UserRole)
+        self.logger.info(f"Switching to module: {module_name}")
+        
+        # Lazy-load CSV editors
+        if module_name.endswith("Editor") and self.modules[module_name] is None:
+            try:
+                filename, headers = self.get_editor_config(module_name)
+                if filename and headers:
+                    editor = CSVEditor(filename, headers, self)
+                    self.modules[module_name] = editor
+                    self.stack.addWidget(editor)
+                    self.logger.info(f"Initialized editor: {module_name}")
+            except Exception as e:
+                self.logger.error(f"Failed to load {module_name}: {str(e)}")
+                QMessageBox.warning(self, "Error", f"Could not load {module_name}:\n{str(e)}")
+                return
+        
+        # Switch to selected module
+        widget = self.modules.get(module_name)
+        if widget is not None:
+            index = self.stack.indexOf(widget)
+            if index >= 0:
+                self.stack.setCurrentIndex(index)
+
+    def get_editor_config(self, editor_name):
+        """Get CSV file config for editors"""
+        config = {
+            "ProductsEditor": ("products.csv", ["ProductCode", "ProductName", "Price", "JDQName"]),
+            "PartsEditor": ("parts.csv", ["Part Number", "Part Name"]),
+            "CustomersEditor": ("customers.csv", ["Name", "CustomerNumber"]),
+            "SalesmenEditor": ("salesmen.csv", ["Name", "Email"])
+        }
+        
+        filename, headers = config.get(editor_name, (None, None))
+        if filename:
+            full_path = os.path.join(self.data_path, filename)
+            if os.path.exists(full_path):
+                return full_path, headers
+            self.logger.warning(f"File not found: {filename}")
+        return None, None
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    
+    # Application styling
+    app.setStyle("Fusion")
+    app.setWindowIcon(QIcon(os.path.join(os.path.dirname(__file__), "BRIapp.ico")))
+    
+    # Create and show main window
+    window = MainWindow()
+    window.show()
+    
+    # Start application
+    sys.exit(app.exec_())

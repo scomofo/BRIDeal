@@ -1,0 +1,21 @@
+{
+    "customer": "TERRY ABOUGHOUSHE",
+    "sales": "Terry Hamilton",
+    "product_code": "0814PC",
+    "equipment_name": "Gen 4 4600 Server V2.0",
+    "equipment_stock": "4534",
+    "equipment_price": "",
+    "trade_name": "",
+    "trade_stock": "",
+    "trade_amount": "",
+    "part_quantity": 1,
+    "part_number": "",
+    "part_name": "",
+    "part_location": "",
+    "part_charge_to": "",
+    "wo_charge": "",
+    "wo_hours": "",
+    "wo_required": false,
+    "csv_multi": false,
+    "paid": false
+}

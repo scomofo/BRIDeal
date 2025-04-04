@@ -1,0 +1,119 @@
+ProductCode,ProductName,Price,JDQName
+0011PC,John Deere Mobile Weather Activation,,JD MOBILE WEATHER ACTIVATION
+0012PC,John Deere Mobile Weather,,JD MOBILE WEATHER
+0016PC,"Yield Documentation, Specialty Crop Activation",,"YIELD DOC, SPECIALTY CROP"
+0049PC,Connect Mobile,,CONNECT MOBILE
+0050PC,John Deere Machine Sync Activation GS3,,JOHN DEERE MACHINE SYNC
+021HPC,Mobile Data Transfer,,MOBILE DATA TRANSFER
+021TPC,JDLink R Modem - 4G,,JDLink R Modem - 4G
+021VPC,JDLink M Modem,,JDLink M Modem
+0260PC,Non-John Deere Guidance Compatibility Activation,,NON-DEERE GUIDANCE ACTVN
+0273PC,John Deere UCC2 Application Controller,,JD APPLICATION CONTROLLER
+02A0PC,MTG 4G LTE - UPGRADE KIT,,JDLINK 4G MTG
+0313PC,iGrade Activation,,IGRADE ACTIVATION
+0314PC,John Deere Distance Trip Activation,,JOHN DEERE DISTANCE TRIP
+0330PC,GreenStar Rate Controller,,GS RATE CONTROLLER
+0335PC,GreenStar Rate Controller Dry,,GS RATE CONTROLLER DRY
+0351PC,iTEC Pro Activation - GS3,,ITEC PRO ACTIVATION - GS3
+0363PC,John Deere Constituent Sensing Upgrade,,CONSTITUENT SENSING UPDATE
+0365PC,HarvestLab 3000,,HARVEST LAB SENSOR 3000
+0366PC,John Deere Constituent Sensing for HarvestLab 3000,,JD CONSTITUENT SENSING
+0368PC,John Deere Forage Constituent Sensing Update,,JD CONSTITUENT SENSING
+036APC,John Deere Manure Sensing Activation,,JDEERE MANURE SENSING
+036BPC,John Deere Manure Sensing Controller,,CS MANURE CONTROLLER KIT
+036CPC,"John Deere Manure Sensing Update for HarvestLab
+3000",,"John Deere Manure Sensing Update for HarvestLab
+3000"
+036DPC,John Deere Grain Constituent Sensing Activation,,JDEERE CONSTITUENT SENSING
+036EPC,HarvestLab 3000 Combine Field Kit,,HARVESTLAB 3000 SENSOR
+036FPC,John Deere Grain Bundle Update,,John Deere Grain Bundle Update
+0370PC,Tractor Automation Activation Third Party Implement,,Tractor Automation Activation Third Party Implement
+0483PC,Surface Water Pro Plus Activation - GS3,,GS3 SURFACE WATER PRO PLUS
+0485PC,"Surface Water Pro Upgrade to Surface Water Pro Plus
+Activation - GreenStar 3",,SWPRO UPGRADE TO SWPLUS GS3
+049DPC,AutoTrac Activation - GS3,,AUTOTRAC ACT - GS3
+049GPC,Gen 4 CommandCenter AutoTrac Activation,,GEN4 AUTOTRAC ACTIVATION
+049WPC,4640 AutoTrac Activation,,4640 AUTOTRAC
+049XPC,4240 AutoTrac Activation,,4240 AUTOTRAC
+04A4PC,4200 Section Control Activation,,4200SECTIONCONTROLACTIV
+04A5PC,Gen 4 CommandCenter Premium Activation 3.0,,COMMANDCENTER PREMIUM
+04A8PC,Gen 4 CommandCenter Automation Activation 4.0,,G4COMMANDCENTERAUTOMATIONACT
+04B2PC,G5Plus CommandCenter Upgrade Kit,,G5Plus CommandCenter Upgrade Kit
+04C0PC,G5 Universal Display,,G5 UNIVERSAL DISPLAY
+04C1PC,G5Plus Universal Display,,G5PLUS UNIVERSAL DISPLAY
+04C3PC,G5Plus Extended Monitor,,G5PLUS EXTENDED MONITOR
+04D0PC,G5 CommandCenter AutoTrac License,,COMMANDCENTER AT ACTIVATION
+04D1PC,G5 CommandCenter Section Control License,,G5 ACTIVATIONS
+04D2PC,G5 CommandCenter AutoTrac RowSense License,,G5CC ROWSENSE ACTIVATIONS
+04D3PC,"G5 CommandCenter AutoTrac and AutoTra
+RowSense License",,G5 ACTIVATIONS
+04D4PC,"G5 CommandCenter AutoTrac and Section Control
+License",,G5 ACTIVATIONS
+04D5PC,"G5 CommandCenter AutoTrac
+RowSense and Section Control License",,G5 ACTIVATIONS
+04D6PC,G5 Universal AutoTrac License,,G5 ACTIVATIONS
+04D7PC,G5 Universal Section Control License,,G5 ACTIVATIONS
+04D8PC,G5 Universal AutoTrac RowSense License,,G5 ACTIVATIONS
+04D9PC,"G5 Universal AutoTrac and AutoTrac RowSense
+License",,G5 ACTIVATIONS
+04DAPC,G5 Universal AutoTrac and Section Control License,,G5 ACTIVATIONS
+04DBPC,"G5 Universal AutoTrac AutoTrac RowSense and
+Section Control License",,G5 ACTIVATIONS
+04DCPC,"G5Plus CommandCenter AutoTrac Rowsense
+License",,G5 ACTIVATIONS
+04DDPC,G5Plus Universal AutoTrac Rowsense License,,G5 ACTIVATIONS
+04F1PC,G5e Implement Display,,G5E UNIVERSAL DISPLAY
+0507PC,AutoTrac RowSense Activation GS3,,GS3 AT ROWSENSE
+050HPC,AutoTrac Vision Controller for Tractors,,AT VISION CONTROLLER KIT
+0534PC,John Deere Section Control Activation - GreenStar 3,,JOHN DEERE SECTION CONTROL
+0536PC,Pivot Pro Activation - GS3,,PIVOT PRO ACTIVATION - GS3
+0580PC,AutoTrac Controller 250,,AUTOTRAC CONTROLLER 250
+0590PC,AutoTrac Controller 300,,AUTOTRAC CONTROLLER 300
+05AHPC,Base Controller Kit - AutoTrac RowSense and Vision,,AT VISION CONTROLLER KIT
+05AJPC,AutoTrac RowSense Feeler Kit,,VISION/ROWSENSE FEELERS
+05BJPC,AutoTrac Vision Camera Kit - Sprayers,,AT VISION CAMERA KIT
+0711PC,Gen 4 4240 Radar Speed Kit,,Gen 4 4240 Radar Speed Kit
+072EPC,Gen 4 Extended Monitor,,GEN 4 EXTENDED MONITOR
+0812PC,Upgrade Kit from 4100 to 4600 Processor V2.0,,4600 V2 SERVER UPGRADE
+0814PC,Gen 4 4600 Server V2.0,,4600 V2 SERVER UPGRADE
+0907PC,Starfire 3000 Receiver,,STARFIRE 3000 RECEIVER
+0908PC,Starfire 6000 Universal Receiver,,STARFIRE 6000 RECEIVER
+0909PC,"StarFire iTC to StarFire 3000 Upgrade - Receiver
+Activations",,SF ITC TO 3000 UPGRADE
+090APC,"SF1 to SF2 Ready Upgrade Activation - StarFire 3000
+Receiver",,AT UPGRADE SF1 TO SF2-GS2
+090EPC,StarFire 6000 SF3 Ready Activation,,SF3 READY ACTIVATION
+090GPC,StarFire 3000 to StarFire 6000 Activation Transfer,,SF3000 TO 6000 TRANSFER
+1040PC,StarFire 7000 Universal Receiver,,STARFIRE 7000 RECEIVER
+1041PC,StarFire 7000 Universal RTK Permanent License,,SF7000 UNIVERSAL RTK
+105APC,StarFire 6000 Integrated SF3 Ready Activation,,SF3 READY ACTIVATION
+106BPC,StarFire 6000 Integrated RTK Ready Activation,,SF6000 INTEGRATED RTK READY
+1090PC,"StarFire 3000 to StarFire 7000 RTK Permanent
+License Transfer",,RTK LICENSE TRANSFER
+1091PC,"StarFire 6000 to StarFire 7000 RTK Permanent
+License Transfer",,RTK LICENSE TRANSFER
+1092PC,"StarFire 3000 to StarFire 7500 RTK Permanent
+License Transfer",,RTK LICENSE TRANSFER
+1093PC,"StarFire 6000 to StarFire 7500 RTK Permanent
+License Transfer",,RTK LICENSE TRANSFER
+1100PC,StarFire 7500 Universal Receiver,,SF7500 UNIVERSAL RECEIVER
+1101PC,"StarFire 7500 Universal RTK (Base Station) Permanent
+License",,SF7500 UNIV PERM RTK
+1110PC,StarFire 7500 Integrated Receiver Upgrade Kit,,StarFire 7500 Integrated Receiver Upgrade Kit
+1111PC,"StarFire 7500 Integrated RTK (Base Station)
+Permanent License",,SF7500 INTEGRATED RTK
+2250PC,John Deere AutoTrac Universal 300,,AUTOTRAC UNIVERSAL 300
+3020PC,Universal Implement Ethernet,,Universal Implement Ethernet
+7305PC,StarFire 3000 RTK Activation,,SF RTK ACTIVATION
+7307PC,StarFire 6000 RTK Ready Activation,,RTK READY FOR SF6000
+7316PC,John Deere RTK Radio StarFire 900,,STARFIRE RTK RADIO
+7321PC,John Deere RTK Radio 450,,STARFIRE RTK RADIO
+7330PC,"StarFire 3000/6000 John Deere Mobile RTK Signal
+Subscription - 1 Year",,MOBILE RTK SUBSCRIPTION
+9502PC,Precision Essentials Kit - G5 Universal,,PRECISION ESSENTIALS
+9503PC,Precision Essentials Kit - G5Plus Universal,,PRECISION ESSENTIALS
+0700PC,ORIGINAL GREENSTAR DISPLAY,,ORIGINAL GREENSTAR DISPLAY
+070FPC,Gen 4 4640 Display,,4640 UNIVERSAL DISPLAY
+0709PC,GS2 1800 Display,,GREENSTAR 2 1800
+0705PC,GS2 2600 Display,,GREENSTAR 2 2600 DISPLAY
+0706PC,GS3 2630 Display,,GREENSTAR 3 2630 DISPLAY
