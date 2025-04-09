@@ -30,7 +30,14 @@ class PriceBookModule(QWidget):
         self.main_window = main_window
         self.sharepoint_manager = sharepoint_manager
         self.setObjectName("PriceBookModule")
-        self._data_path = self._get_data_path()
+        
+        # Check if main_window has a data_path and use it directly
+        if main_window and hasattr(main_window, 'data_path') and main_window.data_path:
+            self._data_path = main_window.data_path
+            print(f"DEBUG: Using data path from main_window in PriceBookModule: {self._data_path}")
+        else:
+            self._data_path = self._get_data_path() # Fallback to search method
+            
         self.settings_file = os.path.join(self._data_path, "pricebook_settings.json") if self._data_path else None
 
         # Data storage
@@ -62,14 +69,32 @@ class PriceBookModule(QWidget):
 
     def _get_data_path(self):
         """Helper function to determine the path to the 'data' directory."""
-        current_dir = os.path.dirname(__file__); data_path = None; project_root_guess = os.path.abspath(os.path.join(current_dir, os.pardir))
-        data_path_parent = os.path.join(project_root_guess, 'data'); data_path_relative = os.path.join(current_dir, 'data'); data_path_assets = os.path.join(project_root_guess, 'assets')
-        if os.path.isdir(data_path_parent): data_path = data_path_parent
-        elif os.path.isdir(data_path_relative): data_path = data_path_relative
-        elif os.path.isdir(data_path_assets): print(f"Warning: 'data' dir not found. Using 'assets': {data_path_assets}"); data_path = data_path_assets
-        if data_path is None: print(f"CRITICAL WARNING: Could not locate 'data' or 'assets' directory near {current_dir}."); return None
-        else: print(f"DEBUG PriceBookModule: Data path set to: {data_path}")
-        return data_path
+        # Try BRIDeal data directory first (the correct location per your logs)
+        current_dir = os.path.dirname(__file__)
+        brideal_data_path = os.path.join(os.path.dirname(current_dir), 'data')
+        if os.path.isdir(brideal_data_path):
+            print(f"DEBUG: Using BRIDeal data path: {brideal_data_path}")
+            return brideal_data_path
+            
+        # Fall back to other locations if BRIDeal data path doesn't exist
+        project_root_guess = os.path.abspath(os.path.join(current_dir, os.pardir))
+        data_path_parent = os.path.join(project_root_guess, 'data')
+        data_path_relative = os.path.join(current_dir, 'data')
+        data_path_user = os.path.join(os.path.expanduser("~"), 'data')
+        data_path_assets = os.path.join(project_root_guess, 'assets')
+        
+        for path, name in [
+            (data_path_parent, "parent data"),
+            (data_path_relative, "relative data"),
+            (data_path_user, "user home data"),
+            (data_path_assets, "assets")
+        ]:
+            if os.path.isdir(path):
+                print(f"DEBUG PriceBookModule: Using {name} path: {path}")
+                return path
+                
+        print(f"CRITICAL WARNING: Could not locate 'data' or 'assets' directory near {current_dir}.")
+        return None
 
     def _show_status_message(self, message, timeout=3000):
         """Helper to show messages on main window status bar or print."""
@@ -467,4 +492,3 @@ if __name__ == '__main__':
     price_book.show()
 
     sys.exit(app.exec_())
-
