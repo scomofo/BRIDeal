@@ -1,0 +1,161 @@
+/* AMSDeal Application Theme - Fixed Version */
+
+/* Global Styles */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+QMainWindow, QDialog, QWidget {
+    background-color: #F8F9FA;
+    color: #333333;
+}
+
+/* Sidebar Styles */
+QListWidget {
+    background: #367C2B;
+    border: none;
+    color: white;
+    outline: 0;
+}
+
+QListWidget::item {
+    padding: 10px 14px;
+    margin: 0;
+    color: white;
+}
+
+QListWidget::item:selected,
+QListWidget::item:selected:!active {
+    background: #FFDE00;
+    color: #2a5d24;
+    font-weight: bold;
+}
+
+QListWidget::item:hover {
+    background: #4a9c3e;
+    color: white;
+}
+
+/* Cards and Labels */
+QFrame {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+QLabel {
+    border: none;
+    background: transparent;
+}
+
+QLabel[valueStatus="error"] {
+    color: #dc3545;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+QLabel[valueStatus="info"] {
+    color: #17a2b8;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+
+/* Status Labels */
+QLabel[class="status-label"] {
+    color: #666666;
+    font-style: italic;
+}
+
+/* Card Titles and Footers - more specific selectors */
+QFrame > QLabel:first-child {
+    color: #003366;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+QFrame > QLabel:last-child {
+    color: #666666;
+    font-size: 9pt;
+    padding-top: 5px;
+}
+
+/* Button Styles */
+QPushButton {
+    background-color: #FFFFFF;
+    color: #003366;
+    border: 1px solid #003366;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 11t;
+    outline: none;
+}
+
+QPushButton:hover {
+    background-color: #E5C700;
+    color: #003366;
+}
+
+QPushButton:pressed {
+    background-color: #E5C700;
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+
+QPushButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    border: 1px solid #bbbbbb;
+}
+
+QPushButton[isPrimary="true"] {
+    background-color: #FFD700;
+    color: white;
+    border: 1px solid transparent;
+}
+
+QPushButton[isPrimary="true"]:hover {
+    background-color: #003366;
+    color: white;
+    border: 1px solid #003366;
+}
+
+
+/* John Deere Official Colors */
+/* Update these in your ams_theme.qss file */
+
+/* Main JD Green */
+QListWidget {
+    background: #367C2B;  /* Official John Deere green */
+    border: none;
+    color: white;
+    outline: 0;
+}
+
+/* JD Yellow for selected items */
+QListWidget::item:selected,
+QListWidget::item:selected:!active {
+    background: #FFDE00;  /* Official John Deere yellow */
+    color: #2a5d24;       /* Darker green for text */
+    font-weight: bold;
+}
+
+/* Lighter green hover */
+QListWidget::item:hover {
+    background: #4a9c3e;  /* Lighter green variant */
+    color: white;
+}
+
+/* Button styling for JD colors */
+QPushButton[isPrimary="true"] {
+    background-color: #FFDE00;  /* JD Yellow */
+    color: #367C2B;             /* JD Green */
+    border: 1px solid transparent;
+}
+
+QPushButton[isPrimary="true"]:hover {
+    background-color: #367C2B;  /* JD Green */
+    color: white;
+    border: 1px solid #367C2B;
+}
